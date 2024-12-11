@@ -1,0 +1,262 @@
+body {
+  font-family: symphony;
+  background-color: black;
+
+  
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  font-family: "Corinthia", cursive;
+}
+
+h1 {
+  display: block;
+  font-size: 100px;
+  margin-block-start: 1em;
+  margin-block-end: 0em;
+  margin-inline-start: 22px;
+  margin-inline-end: 0px;
+  font-weight: revert-layer;
+  unicode-bidi: initial;
+  
+}
+
+p {
+  font-size: 25PX;
+  color:black;
+  text-align: center;
+  font-family: "Comfortaa", sans-serif;
+}
+
+p {
+  display: block;
+  font-size: x-large;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 22px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: initial;
+}
+
+.button {
+  min-width: 300px;
+  min-height: 60px;
+  display: inline-flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4FD1C5;
+background: linear-gradient(90deg, rgb(209 129 230) 0%, rgba(79, 209, 197, 1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin: 0 auto;
+  display: flex
+
+  }
+
+.button::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #ae8fe4;
+  box-shadow: 0 0 60px rgba(113, 109, 192, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button:hover, 
+.button:focus {
+  color: #ffffff;
+  transform: translateY(-6px);
+}
+
+.button:hover::before, 
+.button:focus::before {
+  opacity: 1;
+}
+
+.button::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #9500ff;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.button:hover::after, 
+.button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+.balloon-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  bottom: 0;
+  animation: flyUp 5s linear forwards;
+}
+
+@keyframes changeBackground {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background: indigo;
+  }
+}
+
+.change-background {
+  animation: changeBackground 3s ease-out forwards;
+}
+
+@keyframes flyUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+.image-container, .second-image-container {
+  position: fixed;
+  bottom: 20px;
+  transition: right 3s ease-in-out;
+}
+
+.image-container img, .second-image-container img {
+  width: 650px;
+  height: auto;
+}
+
+.image-container {
+  right: -600px; /* Изначально скрыто за пределами экрана */
+}
+
+.second-image-container {
+  left: -600px; /* Изначально скрыто за пределами экрана */
+  transition: left 3s ease-in-out; /* Плавная анимация для появления слева */
+}
+
+.second-image-container.show {
+  left: 1px; /* Позиция, когда картинка появляется */
+}
+
+.image-container.show {
+  right: 1px; /* Позиция, когда картинка появляется справа */
+}
+
+/* Стили для гирлянды */
+.garland {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.light {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+  animation: fall 5s ease forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+h1, p, h3 {
+  text-shadow: none;
+}
+
+#birthday-text, #genius-text {
+  opacity: 0; /* Делает элементы прозрачными по умолчанию */
+  transition: opacity 1s ease-in-out; /* Плавная анимация появления */
+}
+
+#birthday-text.show-text, #genius-text.show-text {
+  opacity: 1; /* Элементы становятся видимыми */
+}
+
+
+
+h3 {
+  font-size: 25PX;
+  color:black;
+  text-align: center;
+  font-family: "Comfortaa", sans-serif;
+}
+
+h4 {
+  display: block;
+  font-size: x-large;
+  margin-block-start: 1em;
+  margin-block-end: 4em;
+  margin-inline-start: 100px;
+  margin-inline-end: 100px;
+  
+  unicode-bidi: initial;
+
+  font-size: 25PX;
+  color:black;
+  text-align: center;
+  font-family: "Comfortaa", sans-serif;
+
+}
+
